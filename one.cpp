@@ -53,10 +53,10 @@ class ImageMessage: public Message {
         Image *image;
 };
 
-void printMessage(Message *m) {
-    cout << "보낸 시간 : " << m->GetSendTime() << endl;
-    cout << "보낸 사람 : " << m->GetSendName() << endl;
-    cout << " 내 용 :" << m->GetContent() << endl; // 동적 바인딩
+void printMessage(const Message &m) {
+    cout << "보낸 시간 : " << m.GetSendTime() << endl;
+    cout << "보낸 사람 : " << m.GetSendName() << endl;
+    cout << " 내 용 :" << m.GetContent() << endl; // 동적 바인딩
 
     cout << endl;
 }
@@ -66,8 +66,8 @@ int main() {
     TextMessage *hello = new TextMessage(10, "호영", "안녕");
     ImageMessage *dog = new ImageMessage(20, "호영", dogImage);
 
-    printMessage(hello);
-    printMessage(dog);
+    printMessage(*hello);
+    printMessage(*dog);
 
     delete dogImage;
     delete hello;

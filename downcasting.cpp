@@ -17,6 +17,8 @@ struct Drv2: Base {
 int main() {
     // Base *b = new Drv1;
     // cout << b->x << endl;
-    Drv1 *b = new Drv1;
-    cout << b->x << endl;
+    // Drv1 *b = new Drv1;
+    Base *b = new Drv1;
+    Drv1 *d1 = (Drv1*)b;
+    cout << d1->x << endl;
 }
